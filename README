@@ -1,12 +1,15 @@
-This is the source code for review for the paper "Adversarial Robustness in Multi-Task Learning:Promises and Illusions" submitted at AAAI2022.
+# Adversarial Robustness in Multi-Task Learning:Promises and Illusions
 
-Our experiments use CometML to track and record the results of our experiments. You will need a valid (free) account from https://www.comet.ml/ and a personal API Key to send the results of the experiments.
+This is the source code for the paper "Adversarial Robustness in Multi-Task Learning:Promises and Illusions" accepted at AAAI2022.
+[Preprint PDF](https://arxiv.org/pdf/2110.15053)
+
+Our experiments use CometML to track and record the results of our experiments. You will need a valid (free) account from [here](https://www.comet.ml/) and a personal API Key to send the results of the experiments.
 
 In the replication package you will find three folders:
 
-* MTRobust: cloned from https://github.com/columbia/MTRobust/ and extended with additional models (Xception, WideResnet). This repository is used to train the models following the same setting as the original paper of MTRobust. Read their documentation for more instructions about how to train models. Or use our scripts in MTRobust/jobs/
+* MTRobust: cloned from (https://github.com/columbia/MTRobust/) and extended with additional models (Xception, WideResnet). This repository is used to train the models following the same setting as the original paper of MTRobust. Read their documentation for more instructions about how to train models. Or use our scripts in MTRobust/jobs/
 
-You will need to download the Taskonomy dataset as explained in https://github.com/columbia/MTRobust/ and update the configuration files in MTRobust/jobs/
+You will need to download the Taskonomy dataset as explained in (https://github.com/columbia/MTRobust/) and update the configuration files in MTRobust/jobs/
 
 * MTVulnerability: Our package to attack and evaluate the vulnerability of the models. The folder MTVulnerability/jobs contains the script you can run directly. Please read the specific README file of our package for more details & instructions.
 
