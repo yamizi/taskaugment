@@ -1,4 +1,4 @@
-# Adversarial Robustness in Multi-Task Learning:Promises and Illusions
+# Adversarial Robustness in Multi-Task Learning:Promises and Illusions, by Salah Ghamizi, Maxime Cordy, Mike Papadakis, and Yves Le Traon
 
 This is the source code for the paper "Adversarial Robustness in Multi-Task Learning:Promises and Illusions" accepted at AAAI2022.
 [Preprint PDF](https://arxiv.org/pdf/2110.15053)
