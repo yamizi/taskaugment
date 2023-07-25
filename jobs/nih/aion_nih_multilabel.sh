@@ -1,0 +1,37 @@
+#!/bin/bash -l
+### df-ulhpc -i ==>  get storage quota
+###  du -h -d 1 /mnt/lscratch/users/sghamizi ==> get scratch folder sizes
+### squeue -u <username>
+### Request one GPU tasks for 4 hours - dedicate 1/4 of available cores for its management
+
+#SBATCH --mail-user=salah.ghamizi@uni.lu
+#SBATCH -J "NIH_Resnet50_multitask_clean"
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=4
+#SBATCH -C volta32
+#SBATCH -G 1
+#SBATCH --time=16:00:00
+#SBATCH -p gpu
+#SBATCH --mem-per-gpu=80000
+#SBATCH --mail-type=end,fail
+
+print_error_and_exit() { echo "***ERROR*** $*"; exit 1; }
+module purge || print_error_and_exit "No 'module'command"
+# You probably want to use more recent gpu/CUDA-optimized software builds
+#module use /opt/apps/resif/iris/2019b/gpu/modules/all
+module load lang/Python/3.8.6-GCCcore-10.2.0
+
+#module use /opt/apps/resif/iris/2020b/gpu/modules/all
+#module load devel/PyTorch/1.9.0-fosscuda-2020b
+
+cd ~/TopK/
+##pip install --user virtualenv
+##virtualenv venv
+##source venv/bin/activate
+pip install --user  -r requirements.txt
+# This should report a single GPU (over 4 available per gpu node)
+
+#CUDA_VISIBLE_DEVICES=0 python experiments/train_xrayvision.py -name train-xray --dataset chex --model multi_task_resnet50 --dataset_dir  /mnt/lscratch/users/sghamizi/datasets/datasets --output_dir  /mnt/lscratch/users/sghamizi/models/xray  --labelfilter "Atelectasis-Infiltration"
+CUDA_VISIBLE_DEVICES=0 python experiments/train_xrayvision.py --labelfilter "Pneumonia"  -name train-xray --dataset nih --model multi_task_resnet50 --dataset_dir  /mnt/lscratch/users/sghamizi/datasets/datasets --output_dir  /mnt/lscratch/users/sghamizi/models/xray
+#aCUDA_VISIBLE_DEVICES=0 python experiments/train_xrayvision.py -name train-xray --dataset chex --model resnet50 --dataset_dir  /mnt/lscratch/users/sghamizi/datasets/datasets --output_dir  /mnt/lscratch/users/sghamizi/models/xray  --labelfilter "Atelectasis-Infiltration"
+#CUDA_VISIBLE_DEVICES=0 python experiments/train_xrayvision.py -name train-xray --dataset chex --model multi_task_resnet50 --dataset_dir  /mnt/lscratch/users/sghamizi/datasets/datasets --output_dir  /mnt/lscratch/users/sghamizi/models/xray  --labelfilter Consolidation

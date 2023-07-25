@@ -1,0 +1,12 @@
+[submodule "NIH-Chest-X-Rays-Multi-Label-Image-Classification-In-Pytorch"]
+	path = NIH_Chest_X_Rays
+	url = https://github.com/n0obcoder/NIH-Chest-X-Rays-Multi-Label-Image-Classification-In-Pytorch.git
+[submodule "kaggle-aptos2019-blindness-detection"]
+	path = kaggle-aptos2019-blindness-detection
+	url = https://github.com/4uiiurz1/kaggle-aptos2019-blindness-detection.git
+[submodule "traffic-signs-recognition"]
+	path = traffic
+	url = https://github.com/apsdehal/traffic-signs-recognition.git
+[submodule "multi-task-image-classification"]
+	path = multi-task-image-classification
+	url = https://github.com/wchliao/multi-task-image-classification.git

@@ -1,0 +1,1 @@
+--labelfilter "multilabel" --loss_depth 1 --lr 0.1 --optimizer "sgd" -name "local" --dataset aux_imagenetR --threads 8 --batch_size 4 --nb_secondary_labels 2  --algorithm "MADRY" --data_subset 0.5  --model "multi_task_resnet50" --img_size 224 --attack_target "multilabel-rotation" --output_size 200 --pretrained "imagenet"

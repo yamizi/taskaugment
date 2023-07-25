@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=1 /home/sghamizi/miniconda3/envs/salah_pytorch/bin/python "./exploration/xrayvision/train_xrayvision.py" -name train-xray --dataset pc  --dataset_dir  /raid/data/datasets --output_dir  /raid/data/sghamizi/xray --labelfilter "Atelectasis-Infiltration"
