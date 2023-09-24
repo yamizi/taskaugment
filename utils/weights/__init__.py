@@ -15,18 +15,18 @@ def init_strategy(cfg, model, dataset, device ):
         weight_args["calpha"] = 0.5
         weight_args["rescale "] = 1
 
-    if strategy=="mgda":
+    elif strategy=="mgda":
         strat =  MGDA
         weight_args["mgda_gn"] = "none"
 
-    if strategy=="imtl":
+    elif strategy=="imtl":
         strat = IMTL
 
-    if strategy=="gv":
+    elif strategy=="gv":
         strat = GradVac
         weight_args["beta"] = 0.5
 
-    if strategy=="pcg":
+    elif strategy=="pcg":
         strat =  PCGrad
 
     else:
